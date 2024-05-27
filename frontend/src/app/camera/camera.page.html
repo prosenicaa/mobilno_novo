@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Camera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button expand="full" (click)="takePicture()">Take Picture</ion-button>
+    <ion-button expand="full" (click)="uploadPicture()">Upload Picture</ion-button>
+
+    <div *ngIf="imageUrl">
+      <img [src]="imageUrl" alt="Captured Image" />
+    </div>
+  </div>
+</ion-content>

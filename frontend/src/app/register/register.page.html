@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title class="ion-text-center">Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">E-mail</ion-label>
+    <ion-input type="email" [(ngModel)]="email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Are you an admin?</ion-label>
+    <ion-select placeholder="select" (ionChange)="onAdminSelect($event)">
+      <ion-select-option value="yes">Yes</ion-select-option>
+      <ion-select-option value="no">No</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngIf="isAdmin">
+    <ion-label>Role</ion-label>
+    <ion-select placeholder="All" [(ngModel)]="role">
+    <ion-select-option value="manager">Manager</ion-select-option>
+    <ion-select-option value="uidesigner">UI designer</ion-select-option>
+    <ion-select-option value="engenier">Engenier</ion-select-option>
+  </ion-select>
+  </ion-item>
+  <div style="display: flex; justify-content: center">
+    <ion-button class="ion-padding" color="dark" (click)="register()"
+      >Register</ion-button
+    >
+  </div>
+  <p class="ion-text-center" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </p>
+
+  <p class="ion-text-center">Already have an account? <strong routerLink="/login">Login</strong></p>
+</ion-content>
